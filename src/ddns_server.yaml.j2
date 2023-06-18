@@ -1,0 +1,12 @@
+global_token: "{{global_token_uuid}}"
+dns_api:
+  {{dns_api_uuid}}:
+      comment: "cloudflare"
+      lib: "dns_api.cloudflare"
+dns_api_auth:
+  {{dns_api_auth_uuid}}:
+      comment: "{{comment}}"
+      auth:
+        zone_id: "{{cloudflare_zone_id}}"
+        mail: "{{cloudflare_mail}}"
+        token: "{{cloudflare_api_token}}"

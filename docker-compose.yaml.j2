@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  ddns_server:
+    image: "ddns_server:1.0.0"
+    network_mode: "host"
+    restart: "always"
+    user: "{{uid}}:{{gid}}"
+    volumes:
+      - "/opt/docker_service/ddns_server/volume/opt/ddns_server/ddns_server.yaml:/opt/ddns_server/ddns_server.yaml:ro"
+      - "/opt/docker_service/ddns_server/volume/opt/ddns_server/data:/opt/ddns_server/data:rw"
+    environment:
+      - "TZ={{time_zone}}"
+    command:
+      - "--host"
+      - "{{listen_addr}}"
+      - "--port"
+      - "{{listen_port}}"
